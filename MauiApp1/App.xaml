@@ -1,12 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MauiApp1"
-             x:Class="MauiApp1.App">
+<Application
+    x:Class="MauiApp1.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1">
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
 
-            <Color x:Key="PageBackgroundColor">#512bdf</Color>
+            <Style TargetType="StackLayout">
+                <Setter Property="Spacing" Value="4" />
+            </Style>
+
+            <Style TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="4" />
+            </Style>
+
+            <Style TargetType="HorizontalStackLayout">
+                <Setter Property="Spacing" Value="4" />
+            </Style>
+
+            <Style TargetType="Grid">
+                <Setter Property="RowSpacing" Value="4" />
+                <Setter Property="ColumnSpacing" Value="4" />
+            </Style>
+
+            <!--<Color x:Key="PageBackgroundColor">#512bdf</Color>
             <Color x:Key="PrimaryTextColor">White</Color>
 
             <Style TargetType="Label">
@@ -19,7 +41,7 @@
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
                 <Setter Property="BackgroundColor" Value="#2b0b98" />
                 <Setter Property="Padding" Value="14,10" />
-            </Style>
+            </Style>-->
 
         </ResourceDictionary>
     </Application.Resources>

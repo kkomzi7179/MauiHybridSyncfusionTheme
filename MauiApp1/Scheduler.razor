@@ -1,0 +1,51 @@
+﻿@page "/"
+@using MauiApp1.Helper;
+@using MauiApp1.Services;
+@using Syncfusion.Blazor.Schedule
+
+@inject CascadingAppState _cascadingAppState
+@inject IJSRuntime JS
+
+<SfSchedule TValue=AppointmentData>
+    <ScheduleViews>
+        <ScheduleView Option="View.Day"></ScheduleView>
+        <ScheduleView Option="View.Week"></ScheduleView>
+        <ScheduleView Option="View.WorkWeek"></ScheduleView>
+        <ScheduleView Option="View.Month"></ScheduleView>
+        <ScheduleView Option="View.Agenda"></ScheduleView>
+    </ScheduleViews>
+</SfSchedule>
+@code {
+    public class AppointmentData
+    {
+        public int Id { get; set; }
+        public string Subject { get; set; }
+        public string Location { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string Description { get; set; }
+        public bool IsAllDay { get; set; }
+        public string RecurrenceRule { get; set; }
+        public string RecurrenceException { get; set; }
+        public Nullable<int> RecurrenceID { get; set; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ToggleTheme();
+        _cascadingAppState.OnToggleTheme += async () =>
+        {
+            await ToggleTheme();
+        };
+    }
+    async Task ToggleTheme()
+    {
+        await InvokeAsync(async () =>
+        {
+            var isDark = (Application.Current?.UserAppTheme == AppTheme.Unspecified ? Application.Current.PlatformAppTheme : Application.Current?.UserAppTheme) == AppTheme.Dark;
+            await JS.ToggleTheme(isDark ? "bootstrap5-dark" : "bootstrap5");
+
+            StateHasChanged();
+        });
+    }
+}

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.HybridPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appModel="clr-namespace:Microsoft.Maui.ApplicationModel;assembly=Microsoft.Maui.Essentials"
+    xmlns:local="clr-namespace:MauiApp1"
+    BindingContext="{Binding Path=VM, Source={RelativeSource Mode=Self}}">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!--<ScrollView>-->
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Padding="4">
+            <HorizontalStackLayout>
+                <Label HorizontalTextAlignment="Start" Text="{Binding ThemeInfo, StringFormat='테마 정보 {0}'}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Text="테마 변경"
+                    VerticalTextAlignment="Center" />
+                <Button
+                    Command="{Binding ThemeCommand}"
+                    CommandParameter="{Binding Source={x:Static appModel:AppTheme.Unspecified}}"
+                    Text="Default" />
+                <Button
+                    Command="{Binding ThemeCommand}"
+                    CommandParameter="{Binding Source={x:Static appModel:AppTheme.Dark}}"
+                    Text="Dark" />
+                <Button
+                    Command="{Binding ThemeCommand}"
+                    CommandParameter="{Binding Source={x:Static appModel:AppTheme.Light}}"
+                    Text="Light" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+        <Grid Grid.Row="1">
+            <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/Index.html">
+                <BlazorWebView.RootComponents>
+                    <RootComponent ComponentType="{x:Type local:Main}" Selector="#app" />
+                </BlazorWebView.RootComponents>
+            </BlazorWebView>
+        </Grid>
+    </Grid>
+
+    <!--</ScrollView>-->
+
+</ContentPage>
