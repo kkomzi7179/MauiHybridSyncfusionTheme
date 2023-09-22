@@ -12,7 +12,6 @@
         </Style>
     </ContentPage.Resources>
 
-    <!--<ScrollView>-->
     <Grid RowDefinitions="Auto,*">
         <VerticalStackLayout Padding="4">
             <HorizontalStackLayout>
@@ -26,7 +25,7 @@
                 <Button
                     Command="{Binding ThemeCommand}"
                     CommandParameter="{Binding Source={x:Static appModel:AppTheme.Unspecified}}"
-                    Text="Default" />
+                    Text="System" />
                 <Button
                     Command="{Binding ThemeCommand}"
                     CommandParameter="{Binding Source={x:Static appModel:AppTheme.Dark}}"
@@ -46,7 +45,5 @@
             </BlazorWebView>
         </Grid>
     </Grid>
-
-    <!--</ScrollView>-->
 
 </ContentPage>

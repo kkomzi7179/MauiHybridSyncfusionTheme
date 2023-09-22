@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 
-using MauiApp1.Data;
 using MauiApp1.Services;
 using MauiApp1.ViewModel;
 

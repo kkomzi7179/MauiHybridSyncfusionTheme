@@ -14,7 +14,7 @@ namespace MauiApp1.ViewModel
         }
         public string ThemeInfo
         {
-            get { return $"({Application.Current?.PlatformAppTheme}) {Application.Current?.UserAppTheme}"; }
+            get { return $"System : {Application.Current?.PlatformAppTheme}, App : {Application.Current?.UserAppTheme}"; }
         }
         public bool IsDefault
         {
