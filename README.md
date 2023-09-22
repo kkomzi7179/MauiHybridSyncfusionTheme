@@ -1,4 +1,5 @@
 # MauiHybridSyncfusionTheme
+this repository is source code for blog post : https://blog.kkomzi.net/231843
 
 ## Syncfustion LicenseKey
-App.xaml.cs ¼Ò½º ÄÚµå¿¡¼­ ¶óÀÌ¼¾½º Å°¸¦ ÀÔ·ÂÇÒ ÇÊ¿ä°¡ ÀÖ½À´Ï´Ù.
+App.xaml.cs ì†ŒìŠ¤ ì½”ë“œì—ì„œ ë¼ì´ì„¼ìŠ¤ í‚¤ë¥¼ ì…ë ¥í•  í•„ìš”ê°€ ìˆìŠµë‹ˆë‹¤.
