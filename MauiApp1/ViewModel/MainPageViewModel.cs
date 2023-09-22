@@ -38,10 +38,6 @@ namespace MauiApp1.ViewModel
                 if (appTheme is not null && Application.Current is not null)
                 {
                     Application.Current.UserAppTheme = appTheme.Value;
-                    OnPropertyChanged(nameof(ThemeInfo));
-                    OnPropertyChanged(nameof(IsDefault));
-                    OnPropertyChanged(nameof(IsDark));
-                    OnPropertyChanged(nameof(IsLight));
                     await _cascadingAppState.ToggleTheme();
                 }
             });
